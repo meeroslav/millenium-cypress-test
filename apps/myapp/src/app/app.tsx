@@ -3,10 +3,10 @@ import styles from './app.module.css';
 
 import NxWelcome from './nx-welcome';
 
-export function App() {
+export function App({ defaultText }: { defaultText?: string }) {
   return (
     <div>
-      <NxWelcome title="myapp" />
+      <NxWelcome title={defaultText || 'myapp'} />
     </div>
   );
 }

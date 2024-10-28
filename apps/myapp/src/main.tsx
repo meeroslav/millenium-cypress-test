@@ -6,8 +6,9 @@ import App from './app/app';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+console.log(import.meta.env);
 root.render(
   <StrictMode>
-    <App />
+    <App defaultText={import.meta.env.VITE_LOCAL_VAL} />
   </StrictMode>
 );
