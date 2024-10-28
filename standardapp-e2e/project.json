@@ -1,0 +1,33 @@
+{
+  "name": "standardapp-e2e",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "standardapp-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["standardapp"],
+  "// targets": "to see all targets run: nx show project standardapp-e2e --web",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "standardapp-e2e/cypress.config.ts",
+        "testingType": "e2e"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "standardapp:serve:production"
+        },
+        "cypress": {
+          "devServerTarget": "standardapp:serve:cypress"
+        },
+        "ci": {
+          "devServerTarget": "standardapp:serve-static"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

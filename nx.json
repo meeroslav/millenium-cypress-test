@@ -17,6 +17,7 @@
     ],
     "sharedGlobals": []
   },
+  "useInferencePlugins": false,
   "plugins": [
     {
       "plugin": "@nx/vite/plugin",
@@ -53,6 +54,10 @@
   ],
   "targetDefaults": {
     "e2e-ci--**/*": {
+      "dependsOn": ["^build"]
+    },
+    "build": {
+      "cache": true,
       "dependsOn": ["^build"]
     }
   },
